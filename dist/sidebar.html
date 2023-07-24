@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NavBar</title>
+  <!-- Include Tailwind CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="flex h-screen">
+    <!-- Vertical Nav Bar -->
+    <div class="flex flex-col w-20 bg-blue-900">
+      <!-- Nav Items -->
+      <button onclick="gotoPosition(1)" class="flex items-center justify-center h-20 hover:bg-indigo-700">
+        <span class="text-white">My Account</span>
+      </button>
+      <button onclick="gotoPosition(2)" class="flex items-center justify-center h-20 hover:bg-indigo-700">
+        <span class="text-white">Find a Tutor</span>
+      </button>
+      <button onclick="gotoPosition(3)" class="flex items-center justify-center h-20 hover:bg-indigo-700">
+        <span class="text-white">My Cloud</span>
+      </button>
+      <button onclick="gotoPosition(4)" class="flex items-center justify-center h-20 hover:bg-indigo-700">
+        <span class="text-white">My Feed</span>
+      </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative flex-1 p-4">
+      <!-- Animated Element -->
+      <div id="element" class="absolute element w-20 h-20 bg-silver transition-transform duration-300">
+        Some text here...
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    var element = document.querySelector('#element');
+    var currentPosition = 'position-1';
+
+    function gotoPosition(position) {
+      if (currentPosition !== 'position-' + position) {
+        element.classList.remove(currentPosition);
+        element.classList.add('position-' + position);
+        currentPosition = 'position-' + position;
+      }
+    }
+  </script>
+</body>
+</html>
